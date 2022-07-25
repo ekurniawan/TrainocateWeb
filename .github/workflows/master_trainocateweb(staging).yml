@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'staging'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -52,6 +52,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'trainocateweb'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_71FA0526CD0448F68C8DE98C55C682C6 }}
+          slot-name: 'staging'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3FEB4DA3866F42F290360B8D901C73D3 }}
           package: .
